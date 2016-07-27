@@ -6,10 +6,10 @@
  */
 
 var http = require('http')
-  , express = require('express')
-  , io = require('/Users/Dan/.nvm/versions/node/v4.4.7/lib/node_modules/socket.io')
-  , pty = require('/Users/Dan/.nvm/versions/node/v4.4.7/lib/node_modules/pty.js')
-  , terminal = require('/Users/Dan/.nvm/versions/node/v4.4.7/lib/node_modules/term.js');
+  , express = require('/home/ubuntu/.nvm/versions/node/v4.4.7/lib/node_modules/express')
+  , io = require('/home/ubuntu/.nvm/versions/node/v4.4.7/lib/node_modules/socket.io')
+  , pty = require('/home/ubuntu/.nvm/versions/node/v4.4.7/lib/node_modules/pty.js')
+  , terminal = require('/home/ubuntu/.nvm/versions/node/v4.4.7/lib/node_modules/term.js');
 
 /**
  * term.js
@@ -86,19 +86,19 @@ app.use(function(req, res, next) {
 app.use(express.static(__dirname));
 app.use(terminal.middleware());
 
-if (!~process.argv.indexOf('-n')) {
-  server.on('connection', function(socket) {
-   var address = socket.remoteAddress;
-    if (address !== '::ffff:127.0.0.1' ) {
-      try {
-        socket.destroy();
-      } catch (e) {
-        ;
-      }
-      console.log('Attempted connection from %s. Refused.', address);
-    }
-  });
-}
+//if (!~process.argv.indexOf('-n')) {
+//  server.on('connection', function(socket) {
+//   var address = socket.remoteAddress;
+//    if (address !== '::ffff:127.0.0.1' ) {
+//      try {
+//        socket.destroy();
+//      } catch (e) {
+//        ;
+//      }
+//      console.log('Attempted connection from %s. Refused.', address);
+//    }
+//  });
+//}
 
 server.listen(8080);
 
